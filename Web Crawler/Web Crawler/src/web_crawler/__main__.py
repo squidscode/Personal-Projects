@@ -20,15 +20,15 @@ if __name__ == "__main__":
             print(global_variables.data["URL_start"] + URL_suffix + " ERROR!!")
             continue
         soup = BeautifulSoup(page.content, "html.parser")
-        a_list = soup.find_all("a", href=functions.href_wiki_TV_show_link, title=functions.has_title)
+        a_list = soup.find_all("a", href=functions.href_link, title=functions.has_title)
         for a in a_list:
             # if count >= 10: break
             if functions.valid_a_tag(a):
                 print("Opening " + a["href"], end="... ")
                 try:
-                    subpage = requests.get(global_variables.data["URL_wiki"] + a["href"])
+                    subpage = requests.get(global_variables.data["URL_base"] + a["href"])
                 except:
-                    print(global_variables.data["URL_wiki"] + a["href"] + " ERROR!!")
+                    print(global_variables.data["URL_base"] + a["href"] + " ERROR!!")
                     continue
                 subpage_soup = BeautifulSoup(subpage.content, "html.parser")
                 # executor.submit(extract_page_content, recursive_print_content(a), subpage_soup)

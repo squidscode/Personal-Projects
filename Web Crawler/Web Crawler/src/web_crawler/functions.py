@@ -11,11 +11,8 @@ def recursive_print_content(content):
             ans_string += recursive_print_content(item_of_content)
     return ans_string
 
-def href_TV_show_list_link(href):
-    return href and re.compile("/wiki/List_of_television_programs:_")
-
-def href_wiki_TV_show_link(href):
-    return href and re.compile("/wiki/..").search(href) and not re.compile("List_of").search(href)
+def href_link(href):
+    return href and re.compile(global_variables.data["valid_re"]).search(href) and not re.compile(global_variables.data["invalid_re"]).search(href)
 
 def has_title(title):
     return title

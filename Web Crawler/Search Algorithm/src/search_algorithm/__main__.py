@@ -12,7 +12,7 @@ if __name__ == "__main__":
         config = json.load(read_file)
 
     word_dictionary = {}
-    with open("./data/video_game_data.json", "r") as read_file:
+    with open("./data/tvshows(15).json", "r") as read_file:
         word_dictionary = json.load(read_file)
 
     search = input("Type your search query (separate words by commas or spaces): ")
